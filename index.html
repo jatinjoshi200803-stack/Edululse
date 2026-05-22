@@ -1,0 +1,243 @@
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>EduPulse | Complete Class 12 Prep Arena</title>  
+    <script src="https://cdn.tailwindcss.com"></script>  
+    <style>  
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');  
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }  
+    </style>  
+</head>  
+<body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-cyan-500 selection:text-slate-950">  <!-- Header / Navigation -->  
+<nav class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50 px-6 py-4 flex justify-between items-center">  
+    <div class="text-2xl font-extrabold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-fuchsia-500">  
+        EDU<span class="text-white">PULSE</span>  
+    </div>  
+    <div class="flex items-center gap-4">  
+        <span class="bg-cyan-500/10 text-cyan-400 text-xs font-bold px-3 py-1 rounded-full border border-cyan-500/20">  
+            All Streams Covered  
+        </span>  
+    </div>  
+</nav>  
+
+<!-- Main Container -->  
+<main class="max-w-7xl mx-auto px-6 py-12">  
+      
+    <!-- Hero Branding -->  
+    <div class="text-center mb-12 relative">  
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-24 bg-gradient-to-r from-cyan-500/10 to-fuchsia-500/10 blur-3xl rounded-full"></div>  
+        <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-4">  
+            The Ultimate <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Class 12th</span> Hub  
+        </h1>  
+        <p class="text-slate-400 text-sm md:text-base max-w-2xl mx-auto">  
+            Access structured chapter-wise PYQs, subjects mocks, formula sheets, dedicated numerical banks, and core languages all in one place.  
+        </p>  
+    </div>  
+
+    <!-- Search & Control Layout -->  
+    <div class="flex flex-col md:flex-row gap-4 justify-between items-center mb-10 bg-slate-900/40 border border-slate-800 p-4 rounded-2xl">  
+        <div class="relative w-full md:w-80">  
+            <input   
+                type="text"   
+                id="global-search"   
+                placeholder="Search subjects or features..."   
+                class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 pl-10 text-sm text-white outline-none focus:border-cyan-500/60 transition"  
+            />  
+            <span class="absolute left-3.5 top-3 text-slate-500 text-sm">🔍</span>  
+        </div>  
+        <div class="text-xs text-slate-400 font-medium">  
+            Showing customized dashboards for board & entrance setups.  
+        </div>  
+    </div>  
+
+    <!-- Stream Selector Navigation Grid -->  
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-12">  
+        <button onclick="switchCategory('science')" id="btn-science" class="py-3 px-4 rounded-xl font-bold text-sm transition-all duration-200 text-center">  
+            ⚡ Science  
+        </button>  
+        <button onclick="switchCategory('commerce')" id="btn-commerce" class="py-3 px-4 rounded-xl font-bold text-sm transition-all duration-200 text-center">  
+            📊 Commerce  
+        </button>  
+        <button onclick="switchCategory('arts')" id="btn-arts" class="py-3 px-4 rounded-xl font-bold text-sm transition-all duration-200 text-center">  
+            🎭 Humanities  
+        </button>  
+        <button onclick="switchCategory('languages')" id="btn-languages" class="py-3 px-4 rounded-xl font-bold text-sm transition-all duration-200 text-center col-span-1">  
+            🗣️ Core Languages  
+        </button>  
+        <button onclick="switchCategory('electives')" id="btn-electives" class="py-3 px-4 rounded-xl font-bold text-sm transition-all duration-200 text-center col-span-1">  
+            💻 Electives  
+        </button>  
+    </div>  
+
+    <!-- Dynamic Content Header Grid -->  
+    <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">  
+        <h2 id="category-title" class="text-xl font-extrabold tracking-tight text-white">Loading Category...</h2>  
+        <span id="card-counter" class="text-xs text-slate-500 font-mono">0 Loaded</span>  
+    </div>  
+
+    <!-- Dynamic Subjects Render Canvas -->  
+    <div id="subjects-canvas" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">  
+        <!-- Subjects inject here via internal logic engine -->  
+    </div>  
+
+</main>  
+
+<!-- Footer Space -->  
+<footer class="border-t border-slate-900 mt-20 py-8 text-center text-xs text-slate-600 font-mono">  
+    &copy; 2026 EduPulse Network. High performance design structure.  
+</footer>  
+
+<!-- Core Interactive Script Logic -->  
+<script>  
+    // Complete Matrix Data Schema mapped explicitly to user configurations  
+    const masterSyllabusDB = {  
+        science: [  
+            { title: "Physics", icon: "⚛️", type: "Numerical Heavy", desc: "Electrostatics, Optics, Magnetism, and high-tier derivation layouts.", glow: "hover:border-cyan-500/40", chapters: 14, numericals: true },  
+            { title: "Chemistry", icon: "🧪", type: "Mixed", desc: "Organic synthesis mechanisms, physical chemical equations, and coordination trends.", glow: "hover:border-emerald-500/40", chapters: 16, numericals: true },  
+            { title: "Mathematics", icon: "📐", type: "Numerical Heavy", desc: "Calculus marathons, vector algebra configurations, matrices, and 3D geometry sets.", glow: "hover:border-fuchsia-500/40", chapters: 13, numericals: true },  
+            { title: "Biology", icon: "🧬", type: "Theory Heavy", desc: "Genetics blueprints, biotechnology applications, human physiology frameworks.", glow: "hover:border-pink-500/40", chapters: 16, numericals: false }  
+        ],  
+        commerce: [  
+            { title: "Accountancy", icon: "📉", type: "Numerical Heavy", desc: "Partnership firms distribution mechanics, company stock issues, financial reports analysis.", glow: "hover:border-amber-500/40", chapters: 12, numericals: true },  
+            { title: "Economics", icon: "📈", type: "Mixed", desc: "Macroeconomics equations formulas, national income distribution calculations, economic development trends.", glow: "hover:border-teal-500/40", chapters: 10, numericals: true },  
+            { title: "Business Studies", icon: "🏢", type: "Theory Heavy", desc: "Management principles checklists, direct organizational structures, marketing mixes.", glow: "hover:border-orange-500/40", chapters: 12, numericals: false }  
+        ],  
+        arts: [  
+            { title: "History", icon: "📜", type: "Theory Heavy", desc: "Harappan civilization configurations, medieval traveler chronicles, Indian freedom struggle timelines.", glow: "hover:border-yellow-600/40", chapters: 15, numericals: false },  
+            { title: "Political Science", icon: "🏛️", type: "Theory Heavy", desc: "Contemporary geopolitical dynamics, democratic era builds, global international frameworks.", glow: "hover:border-violet-500/40", chapters: 14, numericals: false },  
+            { title: "Geography", icon: "🌍", type: "Practical / Theory", desc: "Human mapping frameworks, physical resource distribution index matrices.", glow: "hover:border-lime-500/40", chapters: 12, numericals: false }  
+        ],  
+        languages: [  
+            { title: "English Core", icon: "🇬🇧", type: "Language Strategy", desc: "Advanced comprehension logs, formal drafts templates, textbook literature analytical files.", glow: "hover:border-blue-400/40", chapters: 18, numericals: false },  
+            { title: "Hindi (Core/Elective)", icon: "🇮🇳", type: "Language Strategy", desc: "Grammar parsing scripts, comprehensive processing layouts, classic literature configurations.", glow: "hover:border-red-400/40", chapters: 16, numericals: false }  
+        ],  
+        electives: [  
+            { title: "Computer Science", icon: "💻", type: "Logic / Coding", desc: "Python OOP modules, structured data stacks, backend SQL connection logic pipelines.", glow: "hover:border-indigo-500/40", chapters: 11, numericals: true }  
+        ]  
+    };  
+
+    let currentActiveSection = 'science';  
+    const tabActiveStyle = "bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-lg shadow-cyan-500/10 border border-cyan-400/30";  
+    const tabInactiveStyle = "bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700";  
+
+    function switchCategory(targetKey) {  
+        currentActiveSection = targetKey;  
+          
+        // Sync dynamic class designations on UI tabs  
+        ['science', 'commerce', 'arts', 'languages', 'electives'].forEach(key => {  
+            const domNode = document.getElementById(`btn-${key}`);  
+            if(domNode) domNode.className = (key === targetKey) ? `col-span-1 py-3 px-4 rounded-xl font-bold text-xs md:text-sm transition-all duration-200 text-center ${tabActiveStyle}` : `col-span-1 py-3 px-4 rounded-xl font-bold text-xs md:text-sm transition-all duration-200 text-center ${tabInactiveStyle}`;  
+        });  
+
+        // Map and parse view designations titles cleanly  
+        const sectionTitlesMap = {  
+            science: "Science Stream Dashboard",  
+            commerce: "Commerce Stream Dashboard",  
+            arts: "Humanities & Arts Dashboard",  
+            languages: "Languages Collection (All Streams)",  
+            electives: "Technical Elective Systems"  
+        };  
+          
+        document.getElementById("category-title").innerText = sectionTitlesMap[targetKey];  
+        document.getElementById("global-search").value = ""; // Auto reset text fields on jump  
+          
+        renderTargetDataset(masterSyllabusDB[targetKey]);  
+    }  
+
+    function renderTargetDataset(itemsList) {  
+        const displayCanvas = document.getElementById("subjects-canvas");  
+        document.getElementById("card-counter").innerText = `${itemsList.length} Subjects Active`;  
+
+        if(itemsList.length === 0) {  
+            displayCanvas.innerHTML = `<div class="col-span-full text-center text-slate-500 py-12">No active items match query criteria.</div>`;  
+            return;  
+        }  
+
+        displayCanvas.innerHTML = itemsList.map(subject => `  
+            <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 ${subject.glow} flex flex-col justify-between">  
+                <div>  
+                    <!-- Header UI Metadata Badge tracking -->  
+                    <div class="flex items-center justify-between mb-4">  
+                        <div class="w-12 h-12 bg-slate-950 rounded-xl flex items-center justify-center text-xl border border-slate-800">  
+                            ${subject.icon}  
+                        </div>  
+                        <span class="text-[10px] font-mono tracking-widest uppercase px-2.5 py-1 rounded-md bg-slate-950 border border-slate-800 text-slate-400">  
+                            ${subject.type}  
+                        </span>  
+                    </div>  
+
+                    <!-- Core Title Structure -->  
+                    <h3 class="text-xl font-bold text-white mb-2">${subject.title}</h3>  
+                    <p class="text-slate-400 text-xs leading-relaxed mb-6">${subject.desc}</p>  
+
+                    <!-- Dynamic Metrics Index tracking arrays -->  
+                    <div class="space-y-2 border-t border-slate-800/80 pt-4 mb-6">  
+                        <div class="flex justify-between text-xs font-mono">  
+                            <span class="text-slate-500">Chapter-wise Syllabus</span>  
+                            <span class="text-cyan-400 font-bold">${subject.chapters} Chapters</span>  
+                        </div>  
+                        <div class="flex justify-between text-xs font-mono">  
+                            <span class="text-slate-500">Subject Level Mocks</span>  
+                            <span class="text-fuchsia-400 font-bold">Available Live</span>  
+                        </div>  
+                    </div>  
+                </div>  
+
+                <!-- Direct Portal Access Grid Map -->  
+                <div class="space-y-2">  
+                    <div class="grid grid-cols-2 gap-2">  
+                        <button class="bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-cyan-500/30 text-[11px] font-bold text-slate-300 py-2 rounded-lg transition">  
+                            📂 Chapter PYQs  
+                        </button>  
+                        <button class="bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-fuchsia-500/30 text-[11px] font-bold text-slate-300 py-2 rounded-lg transition">  
+                            🧪 Chapter Mocks  
+                        </button>  
+                    </div>  
+                      
+                    <div class="grid grid-cols-2 gap-2">  
+                        <button class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-[11px] font-bold text-slate-400 py-2 rounded-lg transition">  
+                            📝 Practice Papers  
+                        </button>  
+                        <button class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-[11px] font-bold text-slate-400 py-2 rounded-lg transition">  
+                            ➕ Extra Questions  
+                        </button>  
+                    </div>  
+
+                    <!-- Conditionally injecting explicit numerical calculations asset triggers based on subject properties structure -->  
+                    ${subject.numericals ? `  
+                        <button class="w-full bg-cyan-500/10 border border-cyan-500/20 hover:bg-cyan-500/20 text-cyan-400 font-bold text-xs py-2.5 rounded-lg transition flex items-center justify-center gap-1.5">  
+                            🧮 Launch Numerical Worksheet Repository  
+                        </button>  
+                    ` : `  
+                        <button class="w-full bg-slate-950 border border-slate-800/60 text-slate-500 text-xs py-2.5 rounded-lg cursor-not-allowed text-center font-medium" disabled>  
+                            No Numerical Worksheets Needed  
+                        </button>  
+                    `}  
+                </div>  
+            </div>  
+        `).join("");  
+    }  
+
+    // =========================================  
+    // REAL-TIME CONTEXTUAL FILTER SEARCH ENGINE  
+    // =========================================  
+    document.getElementById("global-search").addEventListener("input", function(event) {  
+        const searchString = event.target.value.toLowerCase();  
+          
+        // Runs local filter metrics matching search values against dataset properties  
+        const matchedFilter = masterSyllabusDB[currentActiveSection].filter(item =>   
+            item.title.toLowerCase().includes(searchString) ||   
+            item.desc.toLowerCase().includes(searchString) ||  
+            item.type.toLowerCase().includes(searchString)  
+        );  
+          
+        renderTargetDataset(matchedFilter);  
+    });  
+
+    // Initialize display context immediately on document execution  
+    switchCategory('science');  
+</script>
+
+</body>  
+</html>  
